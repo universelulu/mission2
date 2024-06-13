@@ -11,7 +11,7 @@ public class Book {
 		this.title = title;
 	}
 	
-	public int GetId()
+	public int GetId() // id값 리턴
 	{
 		return id;
 	}
