@@ -1,30 +1,58 @@
-pipeline{
-  agent any
+pipeline {
+    agent any
 
-  stages{
-    stage('Checkout'){
-      steps{
-        // 소스코드 체크아웃
-        git 'https://github.com/universelulu/mission2.git'
-      }
+    environment {
+        MAVEN_HOME = tool name: 'Maven', type: 'maven'
+        JUNIT_PLATFORM_JAR = 'junit-platform-console-standalone-1.7.1.jar'
     }
-    stage('Build'){
-      steps{
-        bat 'javac -encoding UTF-8 -d ./build homework/src/homework/*.java'
-     }
-    }
-  }
 
-  post{
-    success{
-      echo 'Build successful!'
-    }
-    failure{
-      echo 'Build failed!'
-    }
-  }
-}
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: 'master']], 
+                          userRemoteConfigs: [[credentialsId: 'Search_Book', 
+                                                url: 'https://github.com/universelulu/mission2.git']]])
+            }
+        }
 
-    
-    
-    
+        stage('Build') {
+            steps {
+                configFileProvider([configFile(fileId: 'maven-settings-xml', variable: 'MAVEN_SETTINGS')]) {
+                    timeout(time: 20, unit: 'MINUTES') {
+                        bat "\"${MAVEN_HOME}\\bin\\mvn\" clean install --settings \"${MAVEN_SETTINGS}\""
+                    }
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    // JUnit 5 테스트 실행을 위한 classpath 설정
+                    def classpath = "classes;lib;${env.JUNIT_PLATFORM_JAR}"
+                    // JUnit 5 테스트 실행
+                    bat "java -cp ${classpath} org.junit.platform.console.ConsoleLauncher --scan-classpath > test_results.txt"
+                }
+            }
+            post {
+                always {
+                    // 테스트 결과 파일을 저장하기 위해 아카이브
+                    archiveArtifacts 'test_results.txt'
+                }
+                failure {
+                    echo 'Build or test failed'
+                }
+                success {
+                    echo 'Build and test succeeded'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs() // Workspace 정리
+        }
+    }
+}이런 식으로 하니까 되네용
