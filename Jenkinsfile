@@ -15,6 +15,9 @@ pipeline {
                 bat 'mvn clean package'
             }
         }
+        stage('Test'){
+            bat 'mvn test'
+        }
     }
 
     post {
