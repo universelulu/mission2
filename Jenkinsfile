@@ -4,7 +4,8 @@ pipeline {
     stages{
         stage('Checkout'){
             steps{
-                git 'https://github.com/universelulu/mission2.git'
+                // 소스코드 체크아웃
+                checkout scm
             }
         }
         stage('Compile'){
