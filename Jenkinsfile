@@ -18,7 +18,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                configFileProvider([configFile(fileId: 'maven-settings-xml', variable: 'MAVEN_SETTINGS')]) {
+                configFileProvider([configFile(fileId: '48f25ff1-72fb-4e82-bb02-ccfb85ede233', variable: 'MAVEN_SETTINGS')]) {
                     timeout(time: 20, unit: 'MINUTES') {
                         bat "\"${MAVEN_HOME}\\bin\\mvn\" clean install --settings \"${MAVEN_SETTINGS}\""
                     }
