@@ -10,7 +10,7 @@ pipeline{
     }
     stage('Build'){
       steps{
-        'javac -d ./build homework/src/homework/*.java'
+        bat 'javac -d ./build homework/src/homework/*.java'
      }
     }
   }
