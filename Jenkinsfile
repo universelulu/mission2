@@ -5,8 +5,14 @@ pipeline{
     stage('Checkout'){
       steps{
         // 소스코드 체크아웃
-        checkout scm
+        git 'https://github.com/universelulu/mission2.git'
       }
     }
+    stage('Build'){
+      steps{
+        
   }
 }
+  }
+}
+    
