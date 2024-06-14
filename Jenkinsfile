@@ -8,11 +8,7 @@ pipeline{
         git 'https://github.com/universelulu/mission2.git'
       }
     }
-    stage('Build'){
-      steps{
-        
   }
 }
-  }
-}
+    
     
