@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-    
-
     stages{
         stage('Checkout'){
             steps{
@@ -16,14 +14,8 @@ pipeline {
             }
         }
         stage('Test'){
-            bat 'mvn test'
+            java -cp C:/Users/jangs/git/mission2/homework/target/classes/homework PerformanceTest
         }
     }
-
-    post {
-        always{
-          java -cp C:/Users/jangs/git/mission2/homework/target/classes/homework PerformanceTest
-       }
-   }
 }
 
