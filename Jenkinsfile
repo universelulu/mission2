@@ -21,7 +21,7 @@ pipeline {
     }
 
     post {
-        success {
+        always{
           java -cp C:/Users/jangs/git/mission2/homework/target/classes/homework PerformanceTest
        }
    }
