@@ -4,7 +4,7 @@ public class BookSearch {
 	
 	public static Book search_bs(Book[] books, int BookId)
 	{
-		int left;
+		int left= 0;
 		int right= books.length-1;
 		
 		while(left<=right)
