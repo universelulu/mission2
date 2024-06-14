@@ -22,7 +22,7 @@ pipeline {
 
     post {
         success {
-          java -jar C:/Users/jangs/git/mission2/homework/target/homework-0.0.1-SNAPSHOT.jar > output.txt
+          java -cp C:/Users/jangs/git/mission2/homework/target/classes/homework PerformanceTest
        }
    }
 }
