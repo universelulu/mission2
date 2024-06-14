@@ -55,4 +55,4 @@ pipeline {
             cleanWs() // Workspace 정리
         }
     }
-}이런 식으로 하니까 되네용
+}
