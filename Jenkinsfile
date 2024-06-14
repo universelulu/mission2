@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'maven-3.9.7'
+    }
+
     stages{
         stage('Checkout'){
             steps{
@@ -8,9 +12,9 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Compile'){
+        stage('Build'){
             steps{
-                bat 'mvn clean compile'
+                bat 'mvn clean package'
             }
         }
     }
