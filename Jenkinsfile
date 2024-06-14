@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        MAVEN_HOME = tool name: 'Maven', type: 'maven'
+        MAVEN_HOME = 'C:/Users/jangs/apache-maven-3.9.7' name: 'Maven', type: 'maven'
         JUNIT_PLATFORM_JAR = 'junit-platform-console-standalone-1.7.1.jar'
     }
 
