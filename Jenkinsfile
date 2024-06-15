@@ -8,10 +8,12 @@ pipeline {
     }
 
     stages{
-        stage('CheckOut')
-        {
-            steps{
-                git 'https://github.com/universelulu/mission2.git'
+        stage('Checkout SCM') {
+            steps {
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: 'master']], 
+                          userRemoteConfigs: [[credentialsId: 'Search_Book', 
+                                                url: 'https://github.com/universelulu/mission2.git']]])
             }
         }
         stage('Build'){
