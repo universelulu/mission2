@@ -4,7 +4,7 @@ pipeline {
     tools {
         // Jenkins에서 설정한 Maven Tool의 이름을 사용
         maven 'maven-3.9.7'
-        jdk 'JDK-1.8'
+        jdk 'JDK-17'
     }
 
     stages{
