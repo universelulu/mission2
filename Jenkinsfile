@@ -17,11 +17,5 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
-        stage('Run') {
-            steps {
-                def output = bat 'java -cp "C:/Users/jangs/git/mission2/homework/target/classes" homework.PerformanceTest'
-                echo output
-            }
-        }
     }
 }
