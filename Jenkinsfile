@@ -10,8 +10,9 @@ pipeline {
         }
         stage('Build'){
             steps{
-                bat 'javac -cp C:/Users/jangs/eclipse/jee-2024-03/eclipse/plugins/junit-platform-console-standalone-1.7.1.jar'
-                bat 'javac -encoding utf-8 -d bin homework/src/homework/*.java'
+                bat 'javac -encoding utf-8 -d bin homework/src/homework/Book.java'
+                bat 'javac -encoding utf-8 -d bin homework/src/homework/BookSearch.java'
+                bat 'javac -encoding utf-8 -d bin homework/src/homework/PerformanceTest.java'
             }
         }
     }
