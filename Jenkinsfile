@@ -13,8 +13,8 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
-        stage('Test'){
-            java -cp C:/Users/jangs/git/mission2/homework/target/classes/homework PerformanceTest
+        stage('Run'){
+            bat 'java -cp "target/classes" homework.PerformanceTest'
         }
     }
 }
