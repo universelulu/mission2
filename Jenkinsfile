@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build'){
             steps{
-                bat 'javac -encoding utf-8 -d bin homework/src/homework/*.java'
+                mvn clean install
             }
         }
     }
