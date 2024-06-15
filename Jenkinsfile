@@ -16,7 +16,7 @@ pipeline {
         stage('Build'){
             steps{
                 bat 'mvn clean install'
-                bat 'java -cp target/homework-0.0.1-SNAPSHOT.jar homework.PerformanceTest > output.txt'
+                bat 'java -cp .;target/homework-0.0.1-SNAPSHOT.jar homework.PerformanceTest > output.txt'
             }
         }
     }
