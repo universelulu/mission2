@@ -13,6 +13,9 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Build'){
+            mvn install
+        }
     }
     post{
         always{
