@@ -19,7 +19,8 @@ pipeline {
         }
         stage('Run') {
             steps {
-                bat 'java -cp "C:/Users/jangs/git/mission2/homework/target/classes" homework.PerformanceTest'
+                def output = bat 'java -cp "C:/Users/jangs/git/mission2/homework/target/classes" homework.PerformanceTest'
+                echo output
             }
         }
     }
