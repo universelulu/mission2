@@ -1,21 +1,21 @@
 pipeline {
     agent any
 
-    stages{
-        stage('Checkout'){
-            steps{
-                // 소스코드 체크아웃
+    stages {
+        stage('Checkout') {
+            steps {
                 checkout scm
             }
         }
-        stage('Build'){
-            steps{
+        stage('Build') {
+            steps {
                 bat 'mvn clean install'
             }
         }
-        stage('Run'){
-            bat 'java -cp "target/classes" homework.PerformanceTest'
+        stage('Run') {
+            steps {
+                bat 'java -cp "C:\\Users\\jangs\\git\\mission2\\homework\\target\\classes" homework.PerformanceTest'
+            }
         }
     }
 }
-
