@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Jenkins에서 설정한 Maven Tool의 이름을 사용
-        maven 'Maven-3.9.7'
+        maven 'maven-3.9.7'
     }
 
     stages{
