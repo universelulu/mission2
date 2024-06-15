@@ -11,7 +11,7 @@ pipeline {
         stage('CheckOut')
         {
             steps{
-                checkout scm
+                git branch 'master', url: 'https://github.com/universelulu/mission2.git'
             }
         }
         stage('Build'){
