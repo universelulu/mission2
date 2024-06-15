@@ -17,11 +17,13 @@ pipeline {
             steps{
                 bat 'mvn clean install'
             }
-            post{
-                always{
-                    bat 'java -cp C:/ProgramData/Jenkins/.jenkins/workspace/Search_Book/target/homework-0.0.1-SNAPSHOT.jar homework.PerformanceTest > output.txt'
-                }
+        }
+        post{
+            always{
+                bat 'java -cp C:/ProgramData/Jenkins/.jenkins/workspace/Search_Book/target/homework-0.0.1-SNAPSHOT.jar homework.PerformanceTest > output.txt'
             }
         }
     }
 }
+
+                
