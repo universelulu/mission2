@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build'){
             steps{
-                echo 'hello world'
+                bat 'javac -d bin homework/src/homework/*.java'
             }
         }
     }
