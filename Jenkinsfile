@@ -11,7 +11,7 @@ pipeline {
         stage('CheckOut')
         {
             steps{
-                git branch 'master', url: 'https://github.com/universelulu/mission2.git'
+                git branch: 'master', url: 'https://github.com/universelulu/mission2.git'
             }
         }
         stage('Build'){
